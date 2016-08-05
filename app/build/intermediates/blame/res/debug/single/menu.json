@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/astudillo/Documents/Android/Test-Navigation_drawer/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/home/astudillo/Documents/Android/Test-Navigation_drawer/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/home/astudillo/Documents/Android/Test-Navigation_drawer/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml",
+        "source": "/home/astudillo/Documents/Android/Test-Navigation_drawer/app/src/main/res/menu/activity_main_drawer.xml"
+    }
+]
