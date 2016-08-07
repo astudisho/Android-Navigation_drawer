@@ -1,10 +1,11 @@
 package com.astudillo.test_navigation_drawer;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,9 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity
-	implements NavigationView.OnNavigationItemSelectedListener
+	implements NavigationView.OnNavigationItemSelectedListener,
+	DriverFragment.OnFragmentInteractionListener
 {
 
 	@Override
@@ -39,10 +42,11 @@ public class MainActivity extends AppCompatActivity
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
 			this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-		drawer.setDrawerListener(toggle);
+		drawer.addDrawerListener(toggle);
 		toggle.syncState();
 
 		NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+		navigationView.setItemIconTintList(null);
 		navigationView.setNavigationItemSelectedListener(this);
 	}
 
@@ -90,29 +94,54 @@ public class MainActivity extends AppCompatActivity
 	{
 		// Handle navigation view item clicks here.
 		int id = item.getItemId();
+		FragmentManager manager = getSupportFragmentManager();
 
-		if (id == R.id.nav_camera)
+		switch (id)
 		{
-			// Handle the camera action
-		} else if (id == R.id.nav_gallery)
-		{
-
-		} else if (id == R.id.nav_slideshow)
-		{
-
-		} else if (id == R.id.nav_manage)
-		{
-
-		} else if (id == R.id.nav_share)
-		{
-
-		} else if (id == R.id.nav_send)
-		{
-
+			case R.id.nav_mapa:
+				MapFragment mapFragment = new MapFragment();
+				manager.beginTransaction().replace
+					(
+						R.id.fragment_layout,
+						mapFragment,
+						mapFragment.getTag()
+					).commit();
+				break;
+			case R.id.nav_video:
+				VideoFragment videoFragment = VideoFragment.newInstance("Javier","Astudillo");
+				manager.beginTransaction().replace
+					(
+						R.id.fragment_layout,
+						videoFragment,
+						videoFragment.getTag()
+					).commit();
+				break;
+			case R.id.nav_conductor:
+				DriverFragment driverFragment = DriverFragment.newInstance("algo1","algo2");
+				manager.beginTransaction().replace
+					(
+						R.id.fragment_layout,
+						driverFragment,
+						driverFragment.getTag()
+					).commit();
+				break;
+			case R.id.nav_rutas:
+				break;
+			case R.id.nav_cuenta:
+				break;
+			default:
+				//Los demas
+				break;
 		}
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawer.closeDrawer(GravityCompat.START);
 		return true;
+	}
+
+	@Override
+	public void onFragmentInteraction(Uri uri)
+	{
+
 	}
 }

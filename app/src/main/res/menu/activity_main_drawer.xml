@@ -3,25 +3,29 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import"/>
+            android:id="@+id/nav_mapa"
+            android:icon="@drawable/ic_map"
+            android:title="Mapa"/>
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery"/>
+            android:id="@+id/nav_video"
+            android:icon="@drawable/ic_video_camera"
+            android:title="Video"/>
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow"/>
+            android:id="@+id/nav_conductor"
+            android:icon="@drawable/ic_bus_driver"
+            android:title="Conductor"/>
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools"/>
+            android:id="@+id/nav_rutas"
+            android:icon="@drawable/ic_school_bus"
+            android:title="Rutas"/>
+        <item
+            android:id="@+id/nav_cuenta"
+            android:icon="@drawable/ic_coin"
+            android:title="Cuenta"/>
     </group>
 
-    <item android:title="Communicate">
-        <menu>
+    <item android:title="Algo">
+        <menu >
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
